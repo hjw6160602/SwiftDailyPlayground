@@ -4,5 +4,9 @@
         <page name='Sequence'/>
         <page name='多元组(Tuple)'/>
         <page name='@escaping'/>
+        <page name='func-params'/>
+        <page name='操作符重载'/>
+        <page name='字面量'/>
+        <page name='反射'/>
     </pages>
 </playground>
