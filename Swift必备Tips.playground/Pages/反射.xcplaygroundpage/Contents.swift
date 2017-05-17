@@ -64,3 +64,47 @@ if let name = valueFrom(xiaoMing, key: "name") as? String {
 
 // 输出：
 // 通过 key 得到值: XiaoMing
+
+
+
+struct Point {
+    var x = 0.0
+    var y = 0.0
+}
+
+class PropertyHub {
+    var simpleProp = "Foo"
+    var structProp = Point()
+    
+    // computed property is not visible in reflect().
+    var computedProp : Point {
+        get {
+            return Point(x: structProp.x + 100.0, y: structProp.y - 100.0)
+        }
+    }
+}
+
+// we have to create an instance before calling reflect().
+var hub = PropertyHub()
+
+let mirror = Mirror(reflecting:hub)
+let count = mirror.children.count
+
+for child in mirror.children {
+    print("属性名:\(child.label)，值:\(child.value)")
+}
+
+//for index in 0..<count {
+//    
+//    let key = mirror.children[index].label
+//    
+//    // "super" refers to super class if any.
+//    if key == "super" && index == 0 {
+//        continue
+//    }
+//    
+//    print("key: ")
+//    print(key)
+//}
+
+
