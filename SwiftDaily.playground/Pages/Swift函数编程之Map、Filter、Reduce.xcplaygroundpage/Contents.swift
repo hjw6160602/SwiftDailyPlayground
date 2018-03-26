@@ -40,6 +40,39 @@ let even = digits.filter { $0 % 2 == 0 }
 
 print(even)
 
+/** 数组去重 */
+let array : [Int] = [1,1,2,2,3,3]
+var hasItem : [Int] = []
+let result = array.filter { (x: Int) -> Bool in
+    var foundRepeat = false
+    for item in hasItem {
+        if x == item {
+            foundRepeat = true
+            return false
+        }
+    }
+    hasItem.append(x)
+    return true
+}
+
+print(result)
+
+let array2 : [Int] = [1,1,2,2,3,3]
+var set : Set<Int> = []
+for item in array2 {
+    set.insert(item)
+}
+print(set)
+
+
+
+//let result = array.filter { (x: Int) -> Bool in
+//
+//}
+
+print(result)
+
+
 let items = [2.0,4.0,5.0,7.0]
 
 /* reduce函数
